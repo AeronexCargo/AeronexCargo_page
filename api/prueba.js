@@ -1,7 +1,4 @@
 
-// api =  EnbX12j02DDHFrAoqjaq3FIkmTGncrrk
-// secret = ekD4hTO1DTpb19Kh
-
 const Awb = document.querySelector('#awb')
 Awb.addEventListener('input', function(){
     const number = Awb.value
@@ -12,45 +9,10 @@ Awb.addEventListener('input', function(){
 })
 
 const container= document.querySelector('#container')
+const history= document.querySelector('#table')
+const td1 = document.querySelector('#td1')
+const td2 = document.querySelector('#td2')
 
-
-
-
-// const btn = document.querySelector('#btn')
-//     btn.addEventListener('click', )
-
-// API AVAILABILITY & PRICE
-
-// function execute() {
-//   const url = "https://api-gateway.champ.aero/csp/transport-means/v1/availability?accountNumber=14000110001&carrierCodes=XS&originAirportCode=SIN&destinationAirportCode=LHR&departureOn=2021-05-08T20%3A30%3A00&weight=150.5";
-//   const options = {
-//     method: "GET",
-//     headers: {
-//       "accept": "application/json",
-//       "apikey": "EnbX12j02DDHFrAoqjaq3FIkmTGncrrk",
-//       "Accept": "application/json"
-//     },
-//   };
-//   fetch(url, options).then(
-//     response => {
-//       if (response.ok) {
-//         return response.text();
-//       }
-//       return response.text().then(err => {
-//         return Promise.reject({
-//           status: response.status,
-//           statusText: response.statusText,
-//           errorMessage: err,
-//         });
-//       });
-//     })
-//     .then(data => {
-//       console.log(data);
-//     })
-//     .catch(err => { 12345675
-//       console.error(err);
-//     });
-// }
 
 // API TRACK AND TRACE
 function execute(numberAwb) {
@@ -77,8 +39,11 @@ function execute(numberAwb) {
         });
       })
       .then(data => {
-        const contenido = document.createElement('DIV')
+
+        const contenido = document.createElement('DIV') 
+        const valor = document.createElement('TR')             
         const segment = data.airwaybill.routingSegments[0]
+        const events = Object.values(data.airwaybill.events)          
         
         contenido.innerHTML = `
             <strong>Air Waybill: ${data.airwaybill.airlinePrefix}-${data.airwaybill.serialNumber}</strong>  <br />
@@ -113,17 +78,21 @@ function execute(numberAwb) {
                             <td></td>
                         </tr>                  
                 </table>
-            </div>
-        </div>
-
-    </div>
-    <hr />
+            </div>  
+            <hr/>
         `
+        events.forEach( event => {
+          const p = document.createElement('P')
 
-        
-        container.appendChild(contenido)
-        
-        console.log(data)
+           p.innerHTML += `${event.time} ${event.onload.code}-${event.offload.code} ${event.actionStatus.description}   
+                           ${event.pieces} ${event.weight.amount}${event.weight.unit} ${event.transportMeans.reference}`
+           
+          td1.appendChild(p)
+           
+        })        
+       
+          container.appendChild(contenido)
+          history.appendChild(td1)    
       })
       .catch(err => {
         console.error(err);

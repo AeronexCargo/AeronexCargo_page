@@ -1,0 +1,36 @@
+
+api =  EnbX12j02DDHFrAoqjaq3FIkmTGncrrk
+secret = ekD4hTO1DTpb19Kh
+
+API AVAILABILITY & PRICE
+
+function execute() {
+  const url = "https://api-gateway.champ.aero/csp/transport-means/v1/availability?accountNumber=14000110001&carrierCodes=XS&originAirportCode=SIN&destinationAirportCode=LHR&departureOn=2021-05-08T20%3A30%3A00&weight=150.5";
+  const options = {
+    method: "GET",
+    headers: {
+      "accept": "application/json",
+      "apikey": "EnbX12j02DDHFrAoqjaq3FIkmTGncrrk",
+      "Accept": "application/json"
+    },
+  };
+  fetch(url, options).then(
+    response => {
+      if (response.ok) {
+        return response.text();
+      }
+      return response.text().then(err => {
+        return Promise.reject({
+          status: response.status,
+          statusText: response.statusText,
+          errorMessage: err,
+        });
+      });
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(err => { 12345675
+      console.error(err);
+    });
+}
