@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prueba</title>
+</head>
+<body>
+    
+    
+    <h4>AWB Tracking</h4>
+  
+        <form id="form2" runat="server" asp-action="Details" method="get" asp-controller="Track">
+            <div class="row">
+                <div class="col-8">
+                    <input required style="color:black; width:50px;" class="input-acs" ID="pre"
+                        AutoComplete="off" asp-for="pre" value="950" id="prefix"/> -
+
+                    <input type="text" required style="color:black; width:150px;" class="input-acs" id="awb"
+                        AutoComplete="off" asp-for="AWB"  />
+
+                    <input class="active" type="submit" name="ListAWB" value="Track" style="color:black" 
+                            onclick="execute()" id="btn"/>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+
+            <div class="col-lg-4">
+                <h4>Summary</h4>
+                <div id="container">
+                
+                </div>
+            </div>
+        </div>
+
+        <div id="history">       
+            <h4>History</h4>            
+                   <div style="margin-left: 150px;">
+                       <p id="table" >                        
+                           <strong>UTC Time</strong>
+                           <strong style="margin-left: 80px;">Event</strong>
+                           <strong style="margin-left: 30px;">Pieces</strong>
+                           <strong style="margin-left: 30px;">Weight</strong>
+                           <strong style="margin-left: 30px;">Details</strong>                                                 
+                       </p>
+                   </div>
+
+                   <div >
+                       <p id="td1"></p>
+                   </div>
+                
+        </div>
+    
+</body>
+
+
+<script src="/api/prueba.js"></script>
+</html>
