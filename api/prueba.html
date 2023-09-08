@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>prueba</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body>   
     
-    
-    <h4>AWB Tracking</h4>
+    <div class="container">          
+              
+        <h4 class="mt-5">AWB Tracking</h4>
   
         <form id="form2" runat="server" asp-action="Details" method="get" asp-controller="Track">
             <div class="row">
@@ -23,36 +26,30 @@
                             onclick="execute()" id="btn"/>
                 </div>
             </div>
-        </form>
-
-        <div class="row">
-
-            <div class="col-lg-4">
-                <h4>Summary</h4>
-                <div id="container">
-                
+        </form> <br>
+            
+        <div id="container" class="col">
+            
+        </div>           
+    </div> 
+        <div id="history" class="oculto">       
+               <br>        
+                <div class="list-group" >
+                    <p id="table" class="container">                        
+                        <strong>UTC Time</strong>
+                        <strong >Event</strong>
+                        <strong >Pieces</strong>
+                        <strong >Weight</strong>
+                        <strong >Details</strong>                                                 
+                    </p>
                 </div>
-            </div>
-        </div>
 
-        <div id="history">       
-            <h4>History</h4>            
-                   <div style="margin-left: 150px;">
-                       <p id="table" >                        
-                           <strong>UTC Time</strong>
-                           <strong style="margin-left: 80px;">Event</strong>
-                           <strong style="margin-left: 30px;">Pieces</strong>
-                           <strong style="margin-left: 30px;">Weight</strong>
-                           <strong style="margin-left: 30px;">Details</strong>                                                 
-                       </p>
-                   </div>
-
-                   <div >
-                       <p id="td1"></p>
-                   </div>
-                
+                <div>
+                    <p id="td1" ></p>
+                </div>                       
         </div>
-    
+        
+
 </body>
 
 

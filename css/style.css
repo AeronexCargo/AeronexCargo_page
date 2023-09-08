@@ -379,6 +379,9 @@ img {
     max-width: 50rem;
     max-height: 30rem;
 }
+.oculto{
+    display: none;
+}
 
 .cerrar {
     width: 5rem;

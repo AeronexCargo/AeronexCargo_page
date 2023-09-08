@@ -1,9 +1,10 @@
 
 const Awb = document.querySelector('#awb')
+
 Awb.addEventListener('input', function(){
     const number = Awb.value
-
-    if(number.length > 7){
+    
+    if(number.length == 8){
         execute(number)
     }
 })
@@ -16,6 +17,7 @@ const td2 = document.querySelector('#td2')
 
 // API TRACK AND TRACE
 function execute(numberAwb) {
+
     const url = `https://api-gateway.champ.aero/csp/track-and-trace/v1/airwaybill?airlinePrefix=950&serialNumber=${numberAwb}`;
     
     const options = {
@@ -41,48 +43,61 @@ function execute(numberAwb) {
       .then(data => {
 
         const contenido = document.createElement('DIV') 
+        const contenido2 = document.createElement('DIV')        
         const valor = document.createElement('TR')             
         const segment = data.airwaybill.routingSegments[0]
         const events = Object.values(data.airwaybill.events)          
         
         contenido.innerHTML = `
-            <strong>Air Waybill: ${data.airwaybill.airlinePrefix}-${data.airwaybill.serialNumber}</strong>  <br />
-            <strong>Status: ${data.airwaybill.routingSegments[0].actionStatus.description}</strong>  <br />
+            <h4>Summary</h4>
+            <strong>Air Waybill: </strong>${data.airwaybill.airlinePrefix}-${data.airwaybill.serialNumber} <br/>
+            <strong>Status: </strong>${data.airwaybill.routingSegments[0].actionStatus.description}<br/>
             <strong>Shipper:</strong>  <br />
             <strong>Consignee:</strong> <br />
-            <strong>Route: ${data.airwaybill.origin.code}-${data.airwaybill.destination.code} </strong>  <br />
-            <strong>Pieces/Weight/Volume ${data.airwaybill.pieces}/${data.airwaybill.weight.amount}/ 
-                           ${data.airwaybill.volume.amount}</strong> <br />
+            <strong>Route: </strong>${data.airwaybill.origin.code}-${data.airwaybill.destination.code}<br/>
+            <strong>Pieces/Weight/Volume</strong> ${data.airwaybill.pieces}/${data.airwaybill.weight.amount}/ 
+                           ${data.airwaybill.volume.amount}<br/>
             <strong>Service:</strong> <br />
             <strong>SCC: </strong> <br />
-            <strong>Goods: ${data.airwaybill.natureOfGoods}</strong> <br /> 
-            
-            <h4>Bookings</h4>
-            <div>
-                <table width="100%">
-                    <tr>
-                        <th>Flight</th>
-                        <th>Date</th>
-                        <th>Segment</th>
-                        <th>Planned<br />Pieces / Weight</th>
-                        
-                    </tr>                    
-                        <tr>
-                            <td>${segment.transportMeans.carrier.code}-
-                                ${segment.transportMeans.transportNumber}</td>
-                            <td>${segment.transportMeans.date}</td>
-                            <td>${segment.onload.code}-
-                                ${segment.offload.code}</td>
-                            <td>${segment.pieces}/ ${segment.weight.amount}${segment.weight.unit}/ 
-                                ${segment.volume.amount}${segment.volume.unit}</td>
-                            <td></td>
-                        </tr>                  
-                </table>
-            </div>  
-            <hr/>
+            <strong>Goods: </strong>${data.airwaybill.natureOfGoods} <br/>             
         `
+        contenido2.innerHTML = `
+            
+              <table width="100%">
+                <tr>
+                    <th>Flight</th>
+                    <th>Date</th>
+                    <th>Segment</th>
+                    <th>Planned /Pieces / Weight</th>                    
+                </tr>                    
+                  <tr>
+                      <td>${segment.transportMeans.carrier.code}-
+                          ${segment.transportMeans.transportNumber}</td>
+                      <td>${segment.transportMeans.date}</td>
+                      <td>${segment.onload.code}-
+                          ${segment.offload.code}</td>
+                      <td>${segment.pieces}/ ${segment.weight.amount}${segment.weight.unit}/ 
+                          ${segment.volume.amount}${segment.volume.unit}</td>
+                      <td></td>
+                  </tr>                  
+              </table>
+          <hr/>
+          <h4>History</h4> 
+        `
+        const btn = document.createElement('BUTTON') 
+        btn.textContent = 'Bookings'
+        btn.classList.add('btn-primary')
+        contenido2.appendChild(btn)
+
+        btn.addEventListener('click', function(){
+           
+          const divHistory = document.querySelector('#history')
+          divHistory.classList.remove('oculto')
+        })
+        
         events.forEach( event => {
           const p = document.createElement('P')
+          p.classList.add('list-group-item')
 
            p.innerHTML += `${event.time} ${event.onload.code}-${event.offload.code} ${event.actionStatus.description}   
                            ${event.pieces} ${event.weight.amount}${event.weight.unit} ${event.transportMeans.reference}`
@@ -90,7 +105,7 @@ function execute(numberAwb) {
           td1.appendChild(p)
            
         })        
-       
+          contenido.appendChild(contenido2)
           container.appendChild(contenido)
           history.appendChild(td1)    
       })
