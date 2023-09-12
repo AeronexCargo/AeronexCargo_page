@@ -21,19 +21,19 @@
 </head>
 <body>
 
-    <header class="header">        
+    <header id="header" class="header">        
         <div class="contenedor">
 
             <div class="barra">
                 <a  href="index.html">   
-                    <img class="header__imagen" src="/img/aeronex-cargo-logo-vector-c3-inv.svg" alt="Logo Aeronex Cargo">     
+                    <img class="header__imagen" src="img/aeronex-cargo-logo-vector-c3-inv.svg" alt="Logo Aeronex Cargo">     
                 </a>                        
                 <a href="nosotros.html" class="header__nav" >Quienes Somos</a>
                 <a href="servicios.html" class="header__nav" >Servicios</a>
                 <a href="contacto.html" class="header__nav" >Contacto</a>        
                 <a href="noticias.html" class="header__nav" >Noticias</a>        
                 <a href="noticias.html">
-                    <img class="header__imagen" src="/img/usunitedstatesflag_111929.svg" >             
+                    <img class="header__imagen" src="img/usunitedstatesflag_111929.svg" >             
                 </a> 
             </div>
 
@@ -169,6 +169,19 @@
     </footer>
     
     <script src="js/modernizr.js"></script>
+    <script>
+        // When the user scrolls down 50px from the top of the document, resize the header's font size
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementById("header").style.fontSize = "30px";
+            } else {
+                document.getElementById("header").style.fontSize = "90px";
+            }
+        }
+    </script>
+    
 </body>
 </html>
 
