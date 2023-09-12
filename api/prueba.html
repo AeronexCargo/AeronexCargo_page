@@ -28,25 +28,32 @@
             </div>
         </form> <br>
             
-        <div id="container" class="col">
+        <!-- <div id="container" class="col"> -->
+        <div id="container" class="d-flex flex-row mb-3">
             
-        </div>           
+        </div>  
+
     </div> 
+    
         <div id="history" class="oculto">       
                <br>        
-                <div class="list-group" >
-                    <p id="table" class="container">                        
-                        <strong>UTC Time</strong>
-                        <strong >Event</strong>
-                        <strong >Pieces</strong>
-                        <strong >Weight</strong>
-                        <strong >Details</strong>                                                 
-                    </p>
-                </div>
-
-                <div>
-                    <p id="td1" ></p>
-                </div>                       
+                <div class="container border border-primary rounded">
+                    <div id="table" > 
+                        <table class="table table-success table-striped"> 
+                            <thead>
+                                <tr class="text-center">                   
+                                    <th scope="col" >UTC Time</th>
+                                    <th scope="col" >Event</th>
+                                    <th scope="col" >Pieces</th>
+                                    <th scope="col" >Weight</th>
+                                    <th scope="col" >Details</th> 
+                                </tr> 
+                            </thead>
+                            <tbody id="body" style="margin-left: 40px;"></tbody>                 
+                             
+                        </table>                                                
+                    </div>
+                </div>                           
         </div>
         
 

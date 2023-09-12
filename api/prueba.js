@@ -11,7 +11,8 @@ Awb.addEventListener('input', function(){
 
 const container= document.querySelector('#container')
 const history= document.querySelector('#table')
-const td1 = document.querySelector('#td1')
+const body= document.querySelector('#body')
+const td1 = document.querySelector('#td1') 
 const td2 = document.querySelector('#td2')
 
 
@@ -43,8 +44,7 @@ function execute(numberAwb) {
       .then(data => {
 
         const contenido = document.createElement('DIV') 
-        const contenido2 = document.createElement('DIV')        
-        const valor = document.createElement('TR')             
+        const contenido2 = document.createElement('DIV')          
         const segment = data.airwaybill.routingSegments[0]
         const events = Object.values(data.airwaybill.events)          
         
@@ -70,23 +70,23 @@ function execute(numberAwb) {
                     <th>Segment</th>
                     <th>Planned /Pieces / Weight</th>                    
                 </tr>                    
-                  <tr>
-                      <td>${segment.transportMeans.carrier.code}-
-                          ${segment.transportMeans.transportNumber}</td>
-                      <td>${segment.transportMeans.date}</td>
-                      <td>${segment.onload.code}-
-                          ${segment.offload.code}</td>
-                      <td>${segment.pieces}/ ${segment.weight.amount}${segment.weight.unit}/ 
-                          ${segment.volume.amount}${segment.volume.unit}</td>
-                      <td></td>
-                  </tr>                  
-              </table>
-          <hr/>
+                <tr>
+                    <td>${segment.transportMeans.carrier.code}-
+                        ${segment.transportMeans.transportNumber}</td>
+                    <td>${segment.transportMeans.date}</td>
+                    <td>${segment.onload.code}-
+                        ${segment.offload.code}</td>
+                    <td>${segment.pieces}/ ${segment.weight.amount}${segment.weight.unit}/ 
+                        ${segment.volume.amount}${segment.volume.unit}</td>
+                    
+                </tr>                  
+            </table>
+          <br/>
           <h4>History</h4> 
         `
         const btn = document.createElement('BUTTON') 
-        btn.textContent = 'Bookings'
-        btn.classList.add('btn-primary')
+        btn.textContent = 'Show'
+        btn.classList.add('btn-outline-primary')
         contenido2.appendChild(btn)
 
         btn.addEventListener('click', function(){
@@ -96,18 +96,39 @@ function execute(numberAwb) {
         })
         
         events.forEach( event => {
-          const p = document.createElement('P')
-          p.classList.add('list-group-item')
 
-           p.innerHTML += `${event.time} ${event.onload.code}-${event.offload.code} ${event.actionStatus.description}   
-                           ${event.pieces} ${event.weight.amount}${event.weight.unit} ${event.transportMeans.reference}`
-           
-          td1.appendChild(p)
+          const tr = document.createElement('TR')
+          tr.classList.add('text-center')
+
+          const time = document.createElement('TD')
+          time.innerHTML = `${event.time}`
+          tr.append(time)
+
+          const onload = document.createElement('TD')
+          onload.innerHTML = `${event.onload.code}-${event.offload.code} ${event.actionStatus.description}`
+          tr.append(onload)
+
+          const pieces = document.createElement('TD')
+          pieces.innerHTML = ` &nbsp; ${event.pieces} &nbsp; &nbsp;`
+          tr.append(pieces)
+
+          const weight = document.createElement('TD')
+          weight.setAttribute("id", "idWeight");
+          weight.innerHTML = `${event.weight.amount}${event.weight.unit}`
+          tr.append(weight)
+
+          const details = document.createElement('TD')
+          details.setAttribute("id", "idDetails")
+          details.innerHTML = ` &nbsp; &nbsp; &nbsp; ${event.transportMeans.reference}`
+          tr.append(details)
+
+          body.append(tr)
+          history.append(body)
            
         })        
           contenido.appendChild(contenido2)
           container.appendChild(contenido)
-          history.appendChild(td1)    
+            
       })
       .catch(err => {
         console.error(err);

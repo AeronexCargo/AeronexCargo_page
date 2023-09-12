@@ -56,6 +56,14 @@ img {
     
 }
 
+#idWeight {
+    text-indent: 15rem;
+}
+
+#idDetails {
+    text-indent: 10rem;
+}
+
 .fijar-body{
     overflow: hidden;
 }
