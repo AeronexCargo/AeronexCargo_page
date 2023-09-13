@@ -62,25 +62,29 @@ function execute(numberAwb) {
             <strong>Goods: </strong>${data.airwaybill.natureOfGoods} <br/>             
         `
         contenido2.innerHTML = `
-            
-              <table width="100%">
-                <tr>
-                    <th>Flight</th>
-                    <th>Date</th>
-                    <th>Segment</th>
-                    <th>Planned /Pieces / Weight</th>                    
-                </tr>                    
-                <tr>
-                    <td>${segment.transportMeans.carrier.code}-
-                        ${segment.transportMeans.transportNumber}</td>
-                    <td>${segment.transportMeans.date}</td>
-                    <td>${segment.onload.code}-
-                        ${segment.offload.code}</td>
-                    <td>${segment.pieces}/ ${segment.weight.amount}${segment.weight.unit}/ 
-                        ${segment.volume.amount}${segment.volume.unit}</td>
-                    
-                </tr>                  
+        <div class="container box-route routeBox">
+            <table class="table table-ccm-day">                
+              <thead>
+                  <tr>
+                      <th>Flight</th>
+                      <th>Date</th>
+                      <th>Segment</th>
+                      <th>Planned /Pieces / Weight</th>                    
+                  </tr>  
+                </thead>                
+                <tbody>
+                  <tr>
+                      <td>${segment.transportMeans.carrier.code}-
+                          ${segment.transportMeans.transportNumber}</td>
+                      <td>${segment.transportMeans.date}</td>
+                      <td>${segment.onload.code}-
+                          ${segment.offload.code}</td>
+                      <td>${segment.pieces}/ ${segment.weight.amount}${segment.weight.unit}/ 
+                          ${segment.volume.amount}${segment.volume.unit}</td>                      
+                  </tr> 
+                </tbody>                 
             </table>
+        </div>
           <br/>
           <h4>History</h4> 
         `
@@ -98,7 +102,7 @@ function execute(numberAwb) {
         events.forEach( event => {
 
           const tr = document.createElement('TR')
-          tr.classList.add('text-center')
+          // tr.classList.add('activeField')
 
           const time = document.createElement('TD')
           time.innerHTML = `${event.time}`
@@ -109,7 +113,7 @@ function execute(numberAwb) {
           tr.append(onload)
 
           const pieces = document.createElement('TD')
-          pieces.innerHTML = ` &nbsp; ${event.pieces} &nbsp; &nbsp;`
+          pieces.innerHTML = `  ${event.pieces}`
           tr.append(pieces)
 
           const weight = document.createElement('TD')
@@ -119,8 +123,9 @@ function execute(numberAwb) {
 
           const details = document.createElement('TD')
           details.setAttribute("id", "idDetails")
-          details.innerHTML = ` &nbsp; &nbsp; &nbsp; ${event.transportMeans.reference}`
+          details.innerHTML = ` ${event.transportMeans.reference}`
           tr.append(details)
+
 
           body.append(tr)
           history.append(body)

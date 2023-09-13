@@ -1,0 +1,468 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+  }
+  
+  /* Provide sufficient contrast against white background */
+  a {
+    color: #0366d6;
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+  }
+  
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+  }
+  
+  /* Sticky footer styles
+  -------------------------------------------------- */
+  html {
+    font-size: 14px;
+  }
+  @media (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  .border-top {
+    border-top: 1px solid #e5e5e5;
+  }
+  .border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  }
+  
+  /* Sticky footer styles
+  -------------------------------------------------- */
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+  }
+  
+  /* Navigation Bar */
+  .bg-navbar {
+      background-color: #f2f2ff !important;
+  }
+  
+  a.bg-navbar:hover, a.bg-navbar:focus,
+  button.bg-navbar:hover,
+  button.bg-navbar:focus {
+      background-color: #6666cc !important;
+  }
+  
+  
+  /* Standard Form Fields
+  -------------------------------------------------- */
+  
+  form {
+      font-size:10pt;
+  }
+  
+  input[type=button], input[type=submit], input[type=reset], button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 2px 10px 3px 10px;
+      text-decoration: none;
+      vertical-align: central;
+      margin: 3px 3px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 10pt;
+  }
+      input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover, button:hover {
+          background-color: darkgreen;
+      }
+  
+     input[type=file]::-webkit-file-upload-button {
+          visibility:hidden;
+          width:0px;
+      }
+  
+  input[type=file]::before {
+      content: 'Select File';
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      background: linear-gradient(top, #c9fFc9, #e3e3e3);
+      border-radius: 3px;
+      padding: 2px 10px 3px 10px;
+      margin: 3px 3px;
+      outline: none;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      cursor: pointer;
+      font-weight:500;
+      font-size: 10pt;
+  }
+  
+input[type=file]:hover::before {
+    border-color: black;
+}
+
+input[type=file]:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #c9fFc9);
+}
+  
+  /* Custom CCM Styles
+  -------------------------------------------------- */
+.booked, .loaded {
+    font-size: small;
+}
+  
+.table-ccm-day {
+    background-color: #DDDDFF;
+}
+
+#idWeight {
+    text-indent: 5rem;
+}
+
+#idDetails {
+    text-indent: 5rem;
+}
+
+.oculto{
+    display: none; 
+}
+  
+  .routeRow {
+      border-radius: 4px;
+      margin-left: 0px;
+      margin-right: 0px;
+      background-color: #FFFFFF;
+  }
+  .detailRow {
+      border-radius: 4px;
+      border-top-width:thin;
+      border-style:solid none none none;
+      margin-left: 0px;
+      margin-right: 0px;
+      background-color: #FFFFEE;
+  }
+  
+  .box-route {
+      border: thin solid #8888BB;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px #9999CC;
+      margin-top: 3px;
+      margin-bottom: 3px;
+  }
+  .box-route-date {
+      border: thin;
+      padding: 3px;
+  }
+  
+  .box-flight-detail {
+      border: thin;
+      padding: 3px;
+      margin-left: 0px;
+      margin-right: 0px;
+      width: 280px;
+  }
+      .box-flight-detail label {
+          width: 110px;
+          display: inline-block;
+          margin-bottom: 0rem;
+      }
+  
+  .box-flight-detail-200 {
+      border: thin;
+      padding: 3px;
+      margin-left: 0px;
+      margin-right: 0px;
+      width: 200px;
+  }
+      .box-flight-detail-200 label {
+          width: 90px;
+          display: inline-block;
+          margin-bottom: 0rem;
+      }
+  
+  .box-route-header {
+      border-radius: 5px;
+      background-image: linear-gradient(120deg, #CCCCFF, #EFEFFF);
+  }
+  
+  .activeTitle:hover {
+      background-image: linear-gradient(120deg, #AAAAFF, #DDDDFF);
+      cursor: pointer;
+  }
+  
+  .activeField:hover {
+      background-color: #FFFFAA;
+      cursor: pointer;
+  }
+  
+  .taskmenu {
+      background-color: #FFEE99;
+      border-color: #000;
+      border-style: solid;
+      border-width: thin;
+      border-radius: 6px;
+  }
+  
+  /* Cargo Status formatting
+  -------------------------------------------------- */
+  .Cargo-Overloaded {
+      background-color: #FFBBBB;
+  }
+  
+  .Cargo-Low {
+      background-color: #FFFFAA;
+  }
+  
+  .Cargo-InRange {
+      background-color: #AAFFAA;
+  }
+  .Cargo-Restricted {
+      background-color: #CCC;
+  }
+  
+  
+  /* Tooltip text
+  -------------------------------------------------- */
+  .tooltiptext {
+      visibility: hidden;
+      /* width: 120px; */
+      background-color: lemonchiffon;
+      color: #000;
+      text-align: center;
+      padding: 5px 0;
+      border-color: #000;
+      border-style: solid;
+      border-width: thin;
+      border-radius: 6px;
+      /* Position the tooltip text - see examples below! */
+      position: absolute;
+      z-index: 1;
+  }
+  
+      /* Show the tooltip text when you mouse over the tooltip container */
+  .baloon:hover .tooltiptext {
+      visibility: visible;
+  }
+  
+  /* Custom Dashboard Styles
+  -------------------------------------------------- */
+  .style1 {
+      text-align: left;
+  }
+  
+  .style2 {
+      text-align: center;
+  }
+  
+  .style5 {
+      font-family: Arial, Helvetica, sans-serif;
+      border-bottom: solid thin;
+  }
+  
+  .style6 {
+      font-size:medium;
+      text-align: left;
+  }
+  
+  .style7 {
+      font-size: small;
+      text-align: left;
+  }
+  
+  td {
+      text-align: center;
+  }
+  
+  .title1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+      font-weight: bold;
+      color: #000080;
+  }
+  
+  .title2 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+      font-weight: normal;
+      color: #000080;
+  }
+  
+  .title3 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+      font-weight: bold;
+      color: #000000;
+      background-color: #DDDDFF;
+      margin: 0px;
+  }
+  
+  .title4 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+      font-weight: bold;
+      color: #000000;
+      background-color: #CCCCFF;
+      margin: 0px;
+  }
+  
+  .clock {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #006600;
+      font-weight: bold;
+  }
+  
+  th, td {
+      font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Buttons*/
+  button.close {
+      width: 32px;
+      height: 24px;
+      float: left;
+      padding: 0;
+      position: relative;
+      top: 0rem;
+      left: -0.2rem;
+      border-radius: 2px;
+      cursor: pointer;
+  }
+  
+      button.close:hover {
+          background-color: #FF0000;
+      }
+  
+      button.close::before,
+      button.close::after {
+          content: '';
+          width: 1px;
+          height: 100%;
+          background: #000;
+          display: block;
+          transform: rotate(45deg) translateX(0px);
+          position: absolute;
+          left: 50%;
+          top: 0;
+      }
+  
+      button.close::after {
+          transform: rotate(-45deg) translateX(0px);
+      }
+  
+  .btn-Accept {
+      font-size: small;
+      text-align: left;
+  }
+  
+  button.accept-policy {
+      font-size: 1rem;
+      line-height: inherit;
+  }
+  
+  .btn:hover {
+      background-color: #CCDDCC;
+  }
+  
+  .btn:focus {
+      padding: 0;
+      border: none;
+  }
+  .dtlbtn {
+      background-color: transparent;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+      font-weight: lighter;
+      padding: 0;
+      border: none;
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+      text-align: center;
+  }
+  
+      .dtlbtn:hover {
+          background-color: #CCCCAA;
+      }
+  
+      .dtlbtn:focus {
+          padding: 0;
+          border: none;
+      }
+  
+  .selRow {
+      background-color: #EEEEFF;
+  }
+  
+  .divPlan {
+      border: solid navy thin;
+      border-radius: 5px;
+      width: 100%;
+  }
+      .divPlan table {
+          width: 100%;
+          vertical-align: top;
+          border-color: #000000;
+          border-bottom-style: solid;
+          border-bottom-width: thin;
+          height: 100%;
+      }
+  
+          .divPlan table thh {
+              background-color: #EEEEFF;
+          }
+  
+  .divManifest {
+      border: solid navy thin;
+      border-radius: 5px;
+      width: 100%;
+      vertical-align: top;
+      background-color: #EEEEFF;
+      height: 100%;
+  }
+      .divManifest table {
+          width: 100%;
+          vertical-align: top;
+          border-color: #000000;
+          border-bottom-style: solid;
+          border-bottom-width: thin;
+          height: 100%;
+      }
+          .divManifest table th {
+              background-color: #DDDDFF;
+          }
+  
+  .flightline:hover {
+      background-color: #FFFFCC;
+  }
+  
+  .time {
+      color: navy;
+      font-size: large;
+      font-weight: bold;
+  }

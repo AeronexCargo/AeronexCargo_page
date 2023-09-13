@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>prueba</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/api/style.css">
 </head>
 <body>   
     
@@ -27,9 +27,9 @@
                 </div>
             </div>
         </form> <br>
-            
-        <!-- <div id="container" class="col"> -->
-        <div id="container" class="d-flex flex-row mb-3">
+        
+
+        <div id="container">
             
         </div>  
 
@@ -37,23 +37,24 @@
     
         <div id="history" class="oculto">       
                <br>        
-                <div class="container border border-primary rounded">
-                    <div id="table" > 
-                        <table class="table table-success table-striped"> 
-                            <thead>
-                                <tr class="text-center">                   
-                                    <th scope="col" >UTC Time</th>
-                                    <th scope="col" >Event</th>
-                                    <th scope="col" >Pieces</th>
-                                    <th scope="col" >Weight</th>
-                                    <th scope="col" >Details</th> 
-                                </tr> 
-                            </thead>
-                            <tbody id="body" style="margin-left: 40px;"></tbody>                 
-                             
-                        </table>                                                
-                    </div>
-                </div>                           
+                
+                <div id="table" class="container box-route routeBox">
+                    
+                    <table class="table table-ccm-day"> 
+                        <thead>
+                            <tr>                   
+                                <th>UTC Time</th>
+                                <th>Event</th>
+                                <th>Pieces</th>
+                                <th>Weight</th>
+                                <th>Details</th> 
+                            </tr> 
+                        </thead>
+                        <tbody id="body"></tbody>                 
+                        
+                    </table>                                                
+                </div>
+                                                        
         </div>
         
 
