@@ -56,6 +56,8 @@ img {
     
 }
 
+ 
+
 .fijar-body{
     overflow: hidden;
 }
@@ -378,6 +380,9 @@ img {
     display: block;
     max-width: 50rem;
     max-height: 30rem;
+}
+.oculto{
+    display: none;
 }
 
 .cerrar {

@@ -34,3 +34,26 @@ function execute() {
       console.error(err);
     });
 }
+
+
+<div>
+                <table width="100%">
+                    <tr>
+                        <th>Flight</th>
+                        <th>Date</th>
+                        <th>Segment</th>
+                        <th>Planned<br />Pieces / Weight</th>
+                        
+                    </tr>                    
+                        <tr>
+                            <td>${segment.transportMeans.carrier.code}-
+                                ${segment.transportMeans.transportNumber}</td>
+                            <td>${segment.transportMeans.date}</td>
+                            <td>${segment.onload.code}-
+                                ${segment.offload.code}</td>
+                            <td>${segment.pieces}/ ${segment.weight.amount}${segment.weight.unit}/ 
+                                ${segment.volume.amount}${segment.volume.unit}</td>
+                            <td></td>
+                        </tr>                  
+                </table>
+            </div> 
