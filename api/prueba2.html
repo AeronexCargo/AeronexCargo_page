@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prueba</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+        integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h4 class="mt-5">AWB Tracking</h4>
+
+        <form id="form2" runat="server" asp-action="Details" method="get" asp-controller="Track">
+            <div class="row">
+                <div class="col-8">
+                    <input required style="color:black; width:50px;" class="input-acs" ID="pre" AutoComplete="off"
+                        asp-for="pre" value="950" id="prefix" /> -
+
+                    <input type="text" required style="color:black; width:150px;" class="input-acs" id="awb"
+                        AutoComplete="off" asp-for="AWB" />
+
+                    <input class="active" type="submit" name="ListAWB" value="Track" style="color:black"
+                        onclick="execute()" id="btn" />
+                </div>
+            </div>
+        </form> <br>
+
+        <div id="data" class="oculto">
+            <div id="container" class="d-flex flex-row">
+
+            </div>
+
+
+            <br />
+            <h4>History</h4>
+            <button id="showbtn" class="btn-outline-primary">Show</button>
+            <div id="history" class="oculto">
+                <br>
+
+                <div id="table" class="container box-route routeBox">
+
+                    <table class="table table-ccm-day">
+                        <thead>
+                            <tr>
+                                <th>UTC Time</th>
+                                <th>Event</th>
+                                <th>Pieces</th>
+                                <th>Weight</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="body"></tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+<script src="prueba2.js"></script>
+
+</html>

@@ -48,28 +48,30 @@ function execute(numberAwb) {
         const segment = data.airwaybill.routingSegments[0]
         const events = Object.values(data.airwaybill.events)          
         
+        contenido.className = 'flex-md-column box-route'
         contenido.innerHTML = `
-            <h4>Summary</h4>
-            <strong>Air Waybill: </strong>${data.airwaybill.airlinePrefix}-${data.airwaybill.serialNumber} <br/>
-            <strong>Status: </strong>${data.airwaybill.routingSegments[0].actionStatus.description}<br/>
-            <strong>Shipper:</strong>  <br />
-            <strong>Consignee:</strong> <br />
-            <strong>Route: </strong>${data.airwaybill.origin.code}-${data.airwaybill.destination.code}<br/>
-            <strong>Pieces/Weight/Volume</strong> ${data.airwaybill.pieces}/${data.airwaybill.weight.amount}/ 
+              <h4>Summary</h4>
+              <strong>Air Waybill: </strong>${data.airwaybill.airlinePrefix}-${data.airwaybill.serialNumber} <br/>
+              <strong>Status: </strong>${data.airwaybill.routingSegments[0].actionStatus.description}<br/>
+              <strong>Shipper:</strong>  <br />
+              <strong>Consignee:</strong> <br />
+              <strong>Route: </strong>${data.airwaybill.origin.code}-${data.airwaybill.destination.code}<br/>
+              <strong>Pieces/Weight/Volume</strong> ${data.airwaybill.pieces}/${data.airwaybill.weight.amount}/ 
                            ${data.airwaybill.volume.amount}<br/>
-            <strong>Service:</strong> <br />
-            <strong>SCC: </strong> <br />
-            <strong>Goods: </strong>${data.airwaybill.natureOfGoods} <br/>             
+              <strong>Service:</strong> <br />
+              <strong>SCC: </strong> <br />
+              <strong>Goods: </strong>${data.airwaybill.natureOfGoods} <br/>           
         `
+        contenido2.className = 'flex-md-column box-route'
         contenido2.innerHTML = `
-        <div class="container box-route routeBox">
-            <table class="table table-ccm-day">                
-              <thead>
+
+            <table>                
+              <thead  class="table table-ccm-day">
                   <tr>
                       <th>Flight</th>
                       <th>Date</th>
                       <th>Segment</th>
-                      <th>Planned /Pieces / Weight</th>                    
+                      <th>Planned / Pieces / Weight</th>                    
                   </tr>  
                 </thead>                
                 <tbody>
@@ -84,14 +86,11 @@ function execute(numberAwb) {
                   </tr> 
                 </tbody>                 
             </table>
-        </div>
-          <br/>
-          <h4>History</h4> 
         `
-        const btn = document.createElement('BUTTON') 
-        btn.textContent = 'Show'
-        btn.classList.add('btn-outline-primary')
-        contenido2.appendChild(btn)
+        const btn = document.querySelector('#showbtn') 
+        //btn.textContent = 'Show'
+        //btn.classList.add('btn-outline-primary')
+        //contenido2.appendChild(btn)
 
         btn.addEventListener('click', function(){
            
@@ -131,9 +130,10 @@ function execute(numberAwb) {
           history.append(body)
            
         })        
-          contenido.appendChild(contenido2)
+          //contenido.appendChild(contenido2)
           container.appendChild(contenido)
-            
+          container.appendChild(contenido2)
+          document.querySelector('#data').classList.remove('oculto')
       })
       .catch(err => {
         console.error(err);

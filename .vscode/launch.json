@@ -6,10 +6,19 @@
     "configurations": [
         
         {
+            "name": "Launch api\\Prueba",
+            "request": "launch",
+            "type": "chrome",
+            "webRoot": "${workspaceFolder}",
+            "url": "c:\\Users\\17869\\Aeronex Cargo\\Aeronex IT - Documents\\Projects\\AeronexCargo Page\\AeronexCargo_page\\api\\prueba.html"
+
+        },
+        
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Open index2.html",
-            "file": "c:\\Users\\17869\\Aeronex Cargo\\Aeronex IT - Documents\\Projects\\AeronexCargo Page\\AeronexCargo_page\\index2.html"
+            "file": "c:\\Users\\17869\\Aeronex Cargo\\Aeronex IT - Documents\\Projects\\AeronexCargo Page\\AeronexCargo_page\\Index2.html"
         }
     ]
 }
