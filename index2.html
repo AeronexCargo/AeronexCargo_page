@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -12,31 +12,60 @@ body {
 
   font-weight: bold;
   position: fixed;
-  top: 0;
+
   width: 100%;
   transition: 0.2s;
 }
 
 .mainheader {
-  padding: 10px 10px;
-  background-color: #0008ff;
-  color: black;
-  font-size: 90px; 
+  /*padding: 10px 10px;*/
+  background-color: #00058c;
+  color: white;
+  font-size: 50px; 
   text-align: left;
+  top: 30px;
+}
+/*.mainheader .btn {
+  font-size: 50px;
+}*/
+.reduced {
+  /*padding: 1px 1px;*/
+  background-color: #00058c;
+  color: white;
+  font-size: 30px;
+  text-align: left;
+  top: 0;
 }
 
-.reduced {
-  padding: 1px 1px;
-  background-color: #00058c;
-  color: rgb(255, 255, 255);
+/*.reduced .btn {
   font-size: 30px; 
-  text-align: left;
+}*/
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  display: inline;
+  /*font-size: 18px;*/
 }
+
+
+/* Style the active class, and buttons on mouse-over */
+.active, .btn:hover {
+  background-color: #00005b;
+  color: white;
+}
+
 </style>
 </head>
 <body>
 
-<div id="header" class="mainheader">Header</div>
+<div id="header" class="mainheader">
+  <div class="btn active"> Home </div>
+  <div class="btn"> Products</div>
+</div>
 
 <div style="margin-top:200px;padding:15px 15px 2500px;font-size:30px">
   <p><b>This example demonstrates how to shrink a header when the user starts to scroll the page.</b></p>
@@ -55,6 +84,18 @@ function scrollFunction() {
   } else {
     document.getElementById("header").classList.remove("reduced"); //.style.fontSize = "90px";
   }
+}
+
+// Add active class to the current button (highlight it)
+var header = document.getElementById("header");
+var btns = header.getElementsByClassName("btn");
+
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
 }
 </script>
 
